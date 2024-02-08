@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue App</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js",
+          "lodash.debounce": "https://esm.sh/lodash.debounce@3.1.1"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <div id="vue-app">
+        <div>
+          <p>Hello {{username}}, welcome to Vue!</p>
+          <form @submit="onSubmit">
+            <input
+              placeholder="enter a topic (vue)..."
+              v-model="query"
+              @input="onInput" />
+          </form>
+          <ul v-if="query">
+            <li v-for="article in articles">
+              <article>
+                <header>
+                  <h2>
+                    <a :href="article.url">{{article.title}}</a>
+                  </h2>
+                  <time>{{new Date(article.created_at).toLocaleDateString()}}</time>
+                </header>
+                <p>{{article.description}}</p>
+              </article>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <script type="module">
+        import './src/index.ts'
+      </script>
+    </main>
+  </body>
+</html>

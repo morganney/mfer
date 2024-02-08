@@ -1,0 +1,33 @@
+{
+  "name": "mfer-monorepo",
+  "version": "1.0.0",
+  "description": "Uses import maps to support micro front-ends built with popular UI libraries.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prettier": "prettier . -w",
+    "serve": "http-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Morgan Ney <morganney@gmail.com>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/react-app",
+    "packages/vue-app"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.16",
+    "http-server": "^14.1.1",
+    "prettier": "^3.2.4",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSameLine": true,
+    "printWidth": 90,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "none"
+  }
+}
